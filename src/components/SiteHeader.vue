@@ -14,7 +14,7 @@ watch(() => route.query.q, (value) => { query.value = String(value || '') })
 watch(() => route.fullPath, () => { menuOpen.value = false })
 function search() {
   menuOpen.value = false
-  router.push({ path: '/catalog', query: query.value.trim() ? { q: query.value.trim() } : {} })
+  router.push({ path: '/parts', query: query.value.trim() ? { q: query.value.trim() } : {} })
 }
 </script>
 

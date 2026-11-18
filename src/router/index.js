@@ -7,6 +7,7 @@ import CheckoutView from '../views/CheckoutView.vue'
 import AuthView from '../views/AuthView.vue'
 import AccountView from '../views/AccountView.vue'
 import InfoView from '../views/InfoView.vue'
+import PartsSearchView from '../views/PartsSearchView.vue'
 import SuccessView from '../views/SuccessView.vue'
 
 const router = createRouter({
@@ -15,7 +16,8 @@ const router = createRouter({
   routes: [
     { path: '/', component: HomeView, meta: { title: 'Главная' } },
     { path: '/catalog', component: CatalogView, meta: { title: 'Каталог' } },
-    { path: '/search', redirect: (to) => ({ path: '/catalog', query: to.query }) },
+    { path: '/parts', component: PartsSearchView, meta: { title: 'Поиск деталей' } },
+    { path: '/search', redirect: (to) => ({ path: '/parts', query: to.query }) },
     { path: '/product/:id', component: ProductView, meta: { title: 'Карточка товара' } },
     { path: '/cart', component: CartView, meta: { title: 'Корзина' } },
     { path: '/checkout', component: CheckoutView, meta: { title: 'Оформление заказа' } },
