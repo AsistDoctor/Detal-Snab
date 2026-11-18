@@ -28,9 +28,17 @@ function search() {
         </div>
         <nav class="top-nav" aria-label="Дополнительная навигация">
           <RouterLink to="/about">О компании</RouterLink>
-          <RouterLink to="/how-to-order" class="with-caret">Новым клиентам<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></RouterLink>
+          <div class="nav-drop">
+            <RouterLink to="/how-to-find" class="with-caret">Новым клиентам<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></RouterLink>
+            <div class="nav-drop-panel">
+              <RouterLink to="/how-to-find">Как найти деталь</RouterLink>
+              <RouterLink to="/how-to-order">Как сделать заказ</RouterLink>
+              <RouterLink to="/payment">Оплата</RouterLink>
+              <RouterLink to="/delivery">Доставка</RouterLink>
+            </div>
+          </div>
           <a href="#footer">Для поставщиков</a>
-          <a href="#news">Новости</a>
+          <RouterLink to="/news">Новости</RouterLink>
           <RouterLink to="/contacts">Контакты</RouterLink>
         </nav>
         <RouterLink :to="auth.isLoggedIn ? '/account' : '/login'" class="account-link">

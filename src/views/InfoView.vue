@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { news } from '../data'
 const props = defineProps({ page: { type: String, required: true } })
 const content = {
   about: { title: 'О компании', intro: '«Деталь Снаб» — поставщик запасных частей и комплектующих для специальной и грузовой техники.', paragraphs: ['Мы предлагаем широкий ассортимент деталей для различных марок: JCB, SDLG, Амкодор, УАЗ, ГАЗ, МАЗ, КАМАЗ, ЗИЛ и других.', 'Наша задача — помогать клиентам поддерживать технику в рабочем состоянии. В каталоге представлены запасные части, расходные материалы, масла и комплектующие.', 'В демонстрационной версии сайта представлены примеры каталога и пользовательских сценариев.'] },
@@ -7,6 +8,7 @@ const content = {
   payment: { title: 'Оплата', intro: 'Для юридических лиц предусмотрена оплата по выставленному счёту.', paragraphs: ['После оформления заявки менеджер проверит наличие и подготовит документы.', 'Для частных покупателей доступные способы оплаты согласуются индивидуально.', 'На данном прототипе оплата не производится, платёжные сервисы не подключены.'] },
   contacts: { title: 'Контакты', intro: 'Свяжитесь с нами удобным способом — поможем с подбором запчастей и оформлением заказа.', paragraphs: ['Телефон: +7 913 703-26-58', 'Электронная почта: info@detal-snab.example', 'Адрес: г. Новосибирск, ул. Аникина, 31, офис 107', 'Режим работы: понедельник — пятница, 09:00–18:00'] },
   'how-to-order': { title: 'Как сделать заказ', intro: 'Заказать нужные детали можно в несколько простых шагов.', paragraphs: ['1. Найдите товар в каталоге по названию или артикулу.', '2. Откройте карточку товара, проверьте характеристики и добавьте позицию в корзину.', '3. Перейдите к оформлению заказа и заполните контактные данные.', '4. Менеджер свяжется с вами, уточнит наличие, стоимость доставки и детали оплаты.', '5. После подтверждения вы получите информацию о дальнейших действиях.'] },
+  'how-to-find': { title: 'Как найти деталь', intro: 'Найдите нужную запчасть за пару минут — по артикулу, названию или категории.', paragraphs: ['По артикулу: введите номер детали в строку поиска в шапке сайта — покажем наличие, сроки и предложения поставщиков, включая оригинальные и неоригинальные аналоги.', 'По названию: не знаете артикул — ищите по названию («тормозные колодки», «масло моторное») и сужайте результаты фильтрами по цене, сроку и производителю.', 'По категориям: на главной есть подбор по категориям — моторные масла, шины и диски, запчасти для ТО и другие.', 'Нужна помощь: менеджер подберёт деталь по марке вашей техники — позвоните нам или оставьте комментарий к заказу.'] },
 }
 const pageContent = computed(() => content[props.page] || content.about)
 </script>
@@ -14,6 +16,18 @@ const pageContent = computed(() => content[props.page] || content.about)
 <template>
   <div class="container content-page info-page">
     <div class="breadcrumbs"><RouterLink to="/">Главная</RouterLink><span>/</span>{{ pageContent.title }}</div>
-    <div class="info-card"><span class="eyebrow">ДЕТАЛЬ СНАБ</span><h1>{{ pageContent.title }}</h1><p class="info-intro">{{ pageContent.intro }}</p><div class="info-copy"><p v-for="paragraph in pageContent.paragraphs" :key="paragraph">{{ paragraph }}</p></div><div v-if="page === 'contacts'" class="contact-actions"><a href="tel:+79137032658" class="primary-button">Позвонить</a><a href="mailto:info@detal-snab.example" class="outline-button">Написать</a></div><RouterLink v-else to="/catalog" class="primary-button">Перейти в каталог</RouterLink></div>
+    <div v-if="page === 'news'" class="news-page">
+      <h1>Новости</h1>
+      <div class="news-grid news-grid-wide">
+        <article v-for="item in news" :key="item.id" class="news-card">
+          <div class="news-image" aria-hidden="true"></div>
+          <span class="news-date">{{ item.date }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+          <a href="#news" class="text-link">Подробнее</a>
+        </article>
+      </div>
+    </div>
+    <div v-else class="info-card"><span class="eyebrow">ДЕТАЛЬ СНАБ</span><h1>{{ pageContent.title }}</h1><p class="info-intro">{{ pageContent.intro }}</p><div class="info-copy"><p v-for="paragraph in pageContent.paragraphs" :key="paragraph">{{ paragraph }}</p></div><div v-if="page === 'contacts'" class="contact-actions"><a href="tel:+79137032658" class="primary-button">Позвонить</a><a href="mailto:info@detal-snab.example" class="outline-button">Написать</a></div><RouterLink v-else to="/catalog" class="primary-button">Перейти в каталог</RouterLink></div>
   </div>
 </template>

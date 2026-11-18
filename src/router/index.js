@@ -28,6 +28,8 @@ const router = createRouter({
     { path: '/payment', component: InfoView, props: { page: 'payment' }, meta: { title: 'Оплата' } },
     { path: '/contacts', component: InfoView, props: { page: 'contacts' }, meta: { title: 'Контакты' } },
     { path: '/how-to-order', component: InfoView, props: { page: 'how-to-order' }, meta: { title: 'Как сделать заказ' } },
+    { path: '/how-to-find', component: InfoView, props: { page: 'how-to-find' }, meta: { title: 'Как найти деталь' } },
+    { path: '/news', component: InfoView, props: { page: 'news' }, meta: { title: 'Новости' } },
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],
 })
