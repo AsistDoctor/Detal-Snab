@@ -65,7 +65,7 @@ function reset() {
 }
 
 function add(row) {
-  cart.add({ id: 'part-' + row.id, name: `${row.brand} — ${row.name}`, article: row.code, price: row.price, image: partInfo.photo })
+  cart.add({ id: 'part-' + row.id, name: `${row.brand} — ${row.name}`, article: row.code, price: row.price, image: partInfo.photo, manufacturer: row.maker, term: row.term, supplier: 'Склад', weight: '—' })
   ui.notify('Деталь добавлена в корзину')
 }
 

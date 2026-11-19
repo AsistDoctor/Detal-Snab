@@ -15,7 +15,10 @@ export const useCartStore = defineStore('cart', {
     add(product) {
       const current = this.items.find((item) => item.id === product.id)
       if (current) current.qty += 1
-      else this.items.push({ id: product.id, name: product.name, article: product.article, price: product.price, image: product.image, qty: 1 })
+      else this.items.push({
+        id: product.id, name: product.name, article: product.article, price: product.price, image: product.image, qty: 1,
+        brand: product.brand || product.manufacturer || '—', term: product.term || '1–2 дн.', supplier: product.supplier || 'AES', weight: product.weight || '—',
+      })
       this.persist()
     },
     setQty(id, qty) {

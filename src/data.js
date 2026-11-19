@@ -53,14 +53,14 @@ export const news = [
 
 // Демонстрационный каталог: цены и наличие вымышлены, фото частично из макета.
 export const products = [
-  { id: 1, article: '153789', name: 'Масло моторное Lukoil Genesis Armortech 0W-20, 4 л', manufacturer: 'Lukoil', category: 'Моторные масла', price: 2334, oldPrice: 2864, stock: 24, delivery: '1–3 дня', image: lukoilImage, badge: 'Хит продаж' },
-  { id: 2, article: 'A000154', name: 'Тормозные колодки усиленные', manufacturer: 'JCB', category: 'Оригинальные запчасти', price: 4180, oldPrice: 4690, stock: 8, delivery: '3–5 дней', image: brakeImage, badge: '−10%' },
-  { id: 3, article: '205/55R16', name: 'Шина универсальная 205/55 R16', manufacturer: 'Michelin', category: 'Шины и диски', price: 6890, stock: 16, delivery: '1–3 дня', image: tireImage },
-  { id: 4, article: 'LF17356', name: 'Комплект фильтров двигателя', manufacturer: 'Caterpillar', category: 'Запчасти для ТО', price: 1240, oldPrice: 1490, stock: 42, delivery: 'В наличии', image: partsImage },
-  { id: 5, article: 'CAT-01-244', name: 'Комплект фильтров спецтехники', manufacturer: 'Caterpillar', category: 'Запчасти для ТО', price: 5720, stock: 7, delivery: '3–5 дней', image: partsImage },
-  { id: 6, article: '15W40-20L', name: 'Масло моторное универсальное 20 л', manufacturer: 'Mobil', category: 'Моторные масла', price: 8490, stock: 19, delivery: '1–3 дня', image: lukoilImage },
-  { id: 7, article: 'JCB-AX14', name: 'Комплект тормозной системы', manufacturer: 'JCB', category: 'Оригинальные запчасти', price: 9380, stock: 5, delivery: 'Под заказ', image: brakeImage },
-  { id: 8, article: 'BAT-120', name: 'Аккумулятор 120 А·ч', manufacturer: 'Тюмень', category: 'Аккумуляторы', price: 11990, oldPrice: 12990, stock: 12, delivery: 'В наличии', image: partsImage },
+  { id: 1, article: '153789', name: 'Масло моторное Lukoil Genesis Armortech 0W-20, 4 л', manufacturer: 'Lukoil', category: 'Моторные масла', price: 2334, oldPrice: 2864, stock: 24, delivery: '1–3 дня', term: '1–2 дн.', supplier: 'AES', weight: '3.9', image: lukoilImage, badge: 'Хит продаж' },
+  { id: 2, article: 'A000154', name: 'Тормозные колодки усиленные', manufacturer: 'JCB', category: 'Оригинальные запчасти', price: 4180, oldPrice: 4690, stock: 8, delivery: '3–5 дней', term: '2–3 дн.', supplier: 'ЦС', weight: '2.4', image: brakeImage, badge: '−10%' },
+  { id: 3, article: '205/55R16', name: 'Шина универсальная 205/55 R16', manufacturer: 'Michelin', category: 'Шины и диски', price: 6890, stock: 16, delivery: '1–3 дня', term: '1–2 дн.', supplier: 'AES', weight: '9.8', image: tireImage },
+  { id: 4, article: 'LF17356', name: 'Комплект фильтров двигателя', manufacturer: 'Caterpillar', category: 'Запчасти для ТО', price: 1240, oldPrice: 1490, stock: 42, delivery: 'В наличии', term: 'Наличие', supplier: 'Склад', weight: '4.1', image: partsImage },
+  { id: 5, article: 'CAT-01-244', name: 'Комплект фильтров спецтехники', manufacturer: 'Caterpillar', category: 'Запчасти для ТО', price: 5720, stock: 7, delivery: '3–5 дней', term: '3–4 дн.', supplier: 'AES', weight: '5.6', image: partsImage },
+  { id: 6, article: '15W40-20L', name: 'Масло моторное универсальное 20 л', manufacturer: 'Mobil', category: 'Моторные масла', price: 8490, stock: 19, delivery: '1–3 дня', term: '1–2 дн.', supplier: 'AES', weight: '18.5', image: lukoilImage },
+  { id: 7, article: 'JCB-AX14', name: 'Комплект тормозной системы', manufacturer: 'JCB', category: 'Оригинальные запчасти', price: 9380, stock: 5, delivery: 'Под заказ', term: '5–7 дн.', supplier: 'ЦС', weight: '6.2', image: brakeImage },
+  { id: 8, article: 'BAT-120', name: 'Аккумулятор 120 А·ч', manufacturer: 'Тюмень', category: 'Аккумуляторы', price: 11990, oldPrice: 12990, stock: 12, delivery: 'В наличии', term: 'Наличие', supplier: 'Склад', weight: '22.0', image: partsImage },
 ]
 
 export const formatPrice = (value) => new Intl.NumberFormat('ru-RU').format(value) + ' ₽'
