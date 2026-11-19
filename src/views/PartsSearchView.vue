@@ -178,12 +178,13 @@ function qtyFrom(delta) {
             <span class="offer-label">{{ card.label }}</span>
             <span class="offer-ph"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z" /><circle cx="12" cy="13" r="3.4" /></svg></span>
             <div class="offer-body">
-              <span class="offer-name">{{ card.row ? card.row.name : 'Предложений нет' }} <button v-if="card.row" class="pinfo-btn" aria-label="Подробнее о детали" @click="selected = card.row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5" /><path d="M12 8h.01" /></svg></button></span>
-              <span class="offer-meta">{{ card.row ? `${card.row.term} · ${card.row.maker}` : card.fallback }}</span>
-              <span class="offer-foot">
-                <b class="offer-price">{{ card.row ? formatPriceRaw(card.row.price) : '—' }}</b>
-                <button v-if="card.row" class="icon-cart-sq" aria-label="Добавить в корзину" @click="add(card.row)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.5 12.5a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.2L21 8H6" /><circle cx="9.5" cy="21" r="1" /><circle cx="17.5" cy="21" r="1" /></svg></button>
+              <span class="offer-name-row">
+                <span class="offer-name">{{ card.row ? card.row.name : 'Предложений нет' }}</span>
+                <button v-if="card.row" class="pinfo-btn" aria-label="Подробнее о детали" @click="selected = card.row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5" /><path d="M12 8h.01" /></svg></button>
               </span>
+              <span class="offer-meta">{{ card.row ? `${card.row.term} · ${card.row.maker}` : card.fallback }}</span>
+              <b class="offer-price">{{ card.row ? formatPriceRaw(card.row.price) : '—' }}</b>
+              <button v-if="card.row" class="primary-button offer-add" @click="add(card.row)">В корзину</button>
             </div>
           </article>
         </div>
@@ -196,11 +197,11 @@ function qtyFrom(delta) {
             <div v-for="row in group.rows" :key="row.id" class="ptable-row">
               <div class="pdetail">
                 <span class="pdetail-ph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z" /><circle cx="12" cy="13" r="3.4" /></svg></span>
-                <div>
-                  <span class="pdetail-name">{{ row.brand }} {{ row.code }}</span>
-                  <button class="pinfo-btn" aria-label="Подробнее о детали" @click="selected = row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5" /><path d="M12 8h.01" /></svg></button>
-                  <div class="pdetail-code">{{ row.code }}</div>
-                </div>
+              <div class="pdetail-line">
+                <span class="pdetail-name">{{ row.brand }} {{ row.code }}</span>
+                <button class="pinfo-btn" aria-label="Подробнее о детали" @click="selected = row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5" /><path d="M12 8h.01" /></svg></button>
+              </div>
+              <div class="pdetail-code">{{ row.code }}</div>
               </div>
               <span class="pterm"><b>{{ row.term }}</b><small>Срок</small></span>
               <span class="pterm"><b>{{ row.qty }} шт.</b><small>Доступно</small></span>
