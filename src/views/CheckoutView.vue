@@ -72,8 +72,10 @@ function submit() {
           </select>
         </label>
         <div class="checkout-total"><span>Итог к оплате:</span><strong>{{ formatPrice(totals.sum) }}</strong></div>
-        <button class="primary-button full-button" @click="submit">Оформить заказ</button>
-        <RouterLink class="secondary-button full-button" to="/cart">Отмена</RouterLink>
+        <div class="checkout-btn-row">
+          <button class="primary-button full-button" @click="submit">Оформить заказ</button>
+          <RouterLink class="secondary-button full-button" to="/cart">Отмена</RouterLink>
+        </div>
       </aside>
     </div>
   </div>
