@@ -4,6 +4,8 @@ import { useRoute, useRouter } from 'vue-router'
 import { offers, partInfo, partMakers, PART_KINDS, formatPriceRaw } from '../partsData'
 import { useCartStore } from '../stores/cart'
 import { useUiStore } from '../stores/ui'
+import { nkDelivery, nkPayment } from '../contentBlocks'
+import InfoModal from '../components/InfoModal.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -24,6 +26,8 @@ const filters = reactive({
 })
 const showAllParams = ref(false)
 const selected = ref(null)
+const showDelivery = ref(false)
+const showPayment = ref(false)
 
 const makerChoices = computed(() => {
   const q = filters.makerQuery.trim().toLowerCase()
@@ -166,7 +170,7 @@ function qtyFrom(delta) {
       <section class="parts-results">
         <div class="parts-meta">
           <span>Результаты по магазину: <b>ДЕТАЛЬ СНАБ (Центральный склад)</b>, Новосибирск, ул. Аникина, д.31, оф.107</span>
-          <RouterLink class="text-link" to="/payment">Информация об оплате и доставке</RouterLink>
+          <span>Информация об <button class="text-link pmeta-link" @click="showPayment = true">оплате</button> и <button class="text-link pmeta-link" @click="showDelivery = true">доставке</button></span>
         </div>
 
         <div class="offer-cards">
@@ -234,5 +238,8 @@ function qtyFrom(delta) {
         </div>
       </div>
     </Transition>
+
+    <InfoModal :open="showDelivery" :title="nkDelivery.title" :intro="nkDelivery.intro" :blocks="nkDelivery.blocks" @close="showDelivery = false" />
+    <InfoModal :open="showPayment" :title="nkPayment.title" :intro="nkPayment.intro" :blocks="nkPayment.blocks" @close="showPayment = false" />
   </div>
 </template>

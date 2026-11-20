@@ -4,6 +4,8 @@ import { useRouter } from 'vue-router'
 import { useCartStore } from '../stores/cart'
 import { useUiStore } from '../stores/ui'
 import { formatPrice } from '../data'
+import { nkDelivery, nkPayment } from '../contentBlocks'
+import InfoModal from '../components/InfoModal.vue'
 
 const router = useRouter()
 const cart = useCartStore()
@@ -11,6 +13,8 @@ const ui = useUiStore()
 const delivery = ref('Самовывоз')
 const car = ref('Не выбран')
 const comment = ref('')
+const showDelivery = ref(false)
+const showPayment = ref(false)
 
 const totals = computed(() => ({
   count: cart.items.reduce((sum, i) => sum + i.qty, 0),
@@ -53,6 +57,10 @@ function submit() {
           </select>
         </label>
         <label class="pf-check"><input type="checkbox" /> Сохранить настройки доставки</label>
+        <div class="checkout-info-links">
+          <button class="text-button" @click="showDelivery = true">О способах доставки</button>
+          <button class="text-button" @click="showPayment = true">О способах оплаты</button>
+        </div>
         <label class="frow frow-top">
           <span>Комментарии к заказу</span>
           <textarea v-model="comment" rows="6" placeholder="Дополнительная информация для менеджера"></textarea>
@@ -71,12 +79,14 @@ function submit() {
             <option>УАЗ Профи</option>
           </select>
         </label>
-        <div class="checkout-total"><span>Итог к оплате:</span><strong>{{ formatPrice(totals.sum) }}</strong></div>
         <div class="checkout-btn-row">
           <button class="primary-button full-button" @click="submit">Оформить заказ</button>
           <RouterLink class="secondary-button full-button" to="/cart">Отмена</RouterLink>
         </div>
       </aside>
+
+      <InfoModal :open="showDelivery" :title="nkDelivery.title" :intro="nkDelivery.intro" :blocks="nkDelivery.blocks" @close="showDelivery = false" />
+      <InfoModal :open="showPayment" :title="nkPayment.title" :intro="nkPayment.intro" :blocks="nkPayment.blocks" @close="showPayment = false" />
     </div>
   </div>
 </template>
