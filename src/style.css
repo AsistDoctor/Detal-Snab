@@ -1,8 +1,15 @@
+@font-face {
+  /* Файл от дизайнера — только Thin; браузер досинтезирует жирность для карточек */
+  font-family: 'TT Commons';
+  src: url('./assets/fonts/TTCommons-Thin.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   font-family: 'PT Sans', Arial, Helvetica, sans-serif;
   color: #1d252b;
   background: #fff;
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   /* Токены из макета (Figma) */
   --blue: #00579F;        /* основной синий, кнопки */
@@ -16,7 +23,7 @@
   --placeholder: #d9d9d9; /* заглушки из макета */
   --red: #e5322d;         /* акция −30% */
   --container: 1180px;
-  --font-card: 'PT Sans', Arial, sans-serif; /* placeholder: TT Commons, ждём файлы от дизайнера */
+  --font-card: 'TT Commons', 'PT Sans', Arial, sans-serif; /* в макете TT Commons Medium; пока файл Thin — браузер синтезирует жирность */
 }
 * { box-sizing: border-box; }
 html { min-width: 320px; scroll-behavior: smooth; }
