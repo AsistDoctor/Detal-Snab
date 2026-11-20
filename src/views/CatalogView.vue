@@ -54,7 +54,7 @@ function reset() { query.value = ''; category.value = ''; manufacturer.value = '
       <section class="catalog-results">
         <div class="catalog-toolbar"><span>Товары для вашей техники</span><label>Сортировка <select v-model="sort"><option value="popular">По популярности</option><option value="price-asc">Сначала дешевле</option><option value="price-desc">Сначала дороже</option><option value="name">По названию</option></select></label></div>
         <div v-if="filtered.length" class="product-grid catalog-grid"><ProductCard v-for="product in filtered" :key="product.id" :product="product" /></div>
-        <div v-else class="empty-state"><span class="empty-icon">⌕</span><h2>Ничего не найдено</h2><p>Попробуйте изменить поисковый запрос или сбросить фильтры.</p><button class="primary-button" @click="reset">Показать все товары</button></div>
+        <div v-else class="empty-state"><span class="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg></span><h2>Ничего не найдено</h2><p>Попробуйте изменить поисковый запрос или сбросить фильтры.</p><button class="primary-button" @click="reset">Показать все товары</button></div>
       </section>
     </div>
   </div>

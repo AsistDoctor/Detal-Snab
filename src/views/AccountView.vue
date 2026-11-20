@@ -183,7 +183,7 @@ function stub(name) { ui.notify(`Раздел «${name}» в разработк�
               <td>
                 <div class="inv-actions">
                   <button class="secondary-button inv-btn" @click="ui.notify('Счет скачивается (демо)')">Скачать <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></button>
-                  <button class="secondary-button inv-btn inv-btn-outline" @click="ui.notify('Прикрепите файл чека (демо)')">⬇ Приложить чек</button>
+                  <button class="secondary-button inv-btn inv-btn-outline" @click="ui.notify('Прикрепите файл чека (демо)')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg> Приложить чек</button>
                   <button v-if="inv.status === 'wait'" class="secondary-button inv-btn inv-btn-muted" @click="ui.notify('Оплата по счету — по согласованию с менеджером (демо)')">Оплатить</button>
                 </div>
               </td>

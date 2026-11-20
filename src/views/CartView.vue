@@ -54,7 +54,7 @@ function setQty(id, value) {
           <span>Цена</span><span>Кол-во</span><span>Вес</span><span>Сумма</span><span></span>
         </div>
         <div v-for="item in cart.items" :key="item.id" class="cart-mock-row">
-          <span><input type="checkbox" class="cart-cb" :checked="checked.has(item.id)" @change="toggleOne(item.id)" /></span>
+          <span class="cart-cb-wrap"><input type="checkbox" class="cart-cb" :checked="checked.has(item.id)" @change="toggleOne(item.id)" /></span>
           <span class="c-art"><b>{{ item.article }}</b><small>{{ item.brand }}</small></span>
           <span class="c-name"><RouterLink :to="`/product/${item.id}`">{{ item.name }}</RouterLink></span>
           <span class="c-term">{{ item.term }}</span>
